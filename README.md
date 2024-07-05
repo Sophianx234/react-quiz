@@ -31,10 +31,10 @@ Check out the live demo of the React Quiz App [here](#).
 
 ## Screenshots
 
-![Home Page](./react-quiz__1.png)
+![Home Page](public\react-quiz__1.png)
 _Home Page_
 
-![Quiz Page](./react-quiz__1.png)
+![Quiz Page](public\react-quiz__2.png)
 _Quiz Page_
 
 ## Installation
