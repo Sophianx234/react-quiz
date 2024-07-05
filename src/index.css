@@ -172,3 +172,23 @@ progress{
   font-weight: 600;
 }
 
+.loading-box img{
+  width: 8rem;
+  animation:  loading 1.2s linear infinite;
+}
+
+.loading-box{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 20rem);
+}
+
+@keyframes loading{
+  from{
+    transform:  rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+

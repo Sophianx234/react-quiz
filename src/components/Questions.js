@@ -1,9 +1,10 @@
 import Options from "./Options"
 import NextButton from "./NextButton"
 import Timer from "./Timer"
-function Questions({questions,dispatch, answer, index, numQuestions, totalPoints, points}) {
+function Questions({questions,dispatch, answer, index, numQuestions, totalPoints, points, secondsRemaining}) {
     const {question, options} = questions
     const hasAnswered = answer !== null
+    
     return (
         <div className="quest__container">
              <progress max={numQuestions-1} value={index}/> 
@@ -14,7 +15,7 @@ function Questions({questions,dispatch, answer, index, numQuestions, totalPoints
             <p className="question">{question}</p>
             <Options options ={options} dispatch={dispatch} questions ={questions} answer={answer}/>
             <div className="nav__btns">
-                <Timer/>
+                <Timer secondsRemaining={secondsRemaining} dispatch={dispatch}/>
             {hasAnswered&&<NextButton index={index} dispatch={dispatch}/>}
             </div>
 

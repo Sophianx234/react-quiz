@@ -4,6 +4,7 @@ import Main from "./Main"
 import StartScreen from "./StartScreen"
 import Questions from './Questions'
 import Finished from "./Finished"
+import Loading from "./Loading"
 
 const initialState = {
   questions: [],
@@ -11,6 +12,7 @@ const initialState = {
   index: 0,
   answer: null,
   points: 0,
+  secondsRemaining: 400
 }
 
 function reducer(state, action){
@@ -30,13 +32,15 @@ function reducer(state, action){
       return {...state, index: state.index+1, answer: null}
     case 'finish':
       return {...state, status: 'finished'}
+    case 'tick':
+      return {...state, secondsRemaining: state.secondsRemaining>0 ? state.secondsRemaining -1: state.secondsRemaining, status: state.secondsRemaining === 0 ? 'finished': 'start'}
     default:
       throw new Error ('could not fetch')
   }
 }
 
 function App() {
-  const [{questions, status, index, answer, points, correctOption}, dispatch] = useReducer(reducer, initialState)
+  const [{questions, status, index, answer, points, secondsRemaining}, dispatch] = useReducer(reducer, initialState)
   
   const numQuestions = questions.length
   const totalPoints = questions?.map(question=>question.points).reduce((curr, acc)=> curr+acc,0)
@@ -62,8 +66,11 @@ function App() {
       <Header/>
       <Main>
         {status ==="ready" &&<StartScreen dispatch = {dispatch} numQuestions={numQuestions} />}
-        {status === 'start' &&< Questions questions={questions[index]} dispatch={dispatch} answer={answer} index={index} numQuestions={numQuestions} totalPoints={totalPoints} points={points}/>}
+        {status === 'start' &&< Questions questions={questions[index]} dispatch={dispatch} answer={answer} index={index} numQuestions={numQuestions} totalPoints={totalPoints} points={points}
+        secondsRemaining={secondsRemaining}
+        />}
         {status === 'finished'&& <Finished totalPoints={totalPoints} points={points}/>}
+        {status === 'loading' && <Loading/>}
 
       </Main>
     </div>
