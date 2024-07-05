@@ -14,7 +14,7 @@ const initialState = {
   points: 0,
   secondsRemaining: 400
 }
-
+document.title = 'React-Quiz'
 function reducer(state, action){
   switch(action.type){
     case 'setQuestion':
