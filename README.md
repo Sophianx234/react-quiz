@@ -31,11 +31,11 @@ Check out the live demo of the React Quiz App [here](#).
 
 ## Screenshots
 
-![Home Page](path/to/screenshot1.png)
-*Home Page*
+![Home Page](./react-quiz__1.png)
+_Home Page_
 
-![Quiz Page](path/to/screenshot2.png)
-*Quiz Page*
+![Quiz Page](./react-quiz__1.png)
+_Quiz Page_
 
 ## Installation
 
@@ -45,12 +45,15 @@ To run this app locally, follow these steps:
    ```bash
    git clone https://github.com/yourusername/react-quiz-app.git
    cd react-quiz-app
+   ```
 2. **Install dependencies:**
    ```bash
    npm install
+   ```
 3. **Start the development server:**
    ```bash
    npm start
+   ```
 
 ## Usage
 
